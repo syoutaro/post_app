@@ -12,6 +12,8 @@ gem 'hamlit-rails'
 gem 'erb2haml'
 gem 'annotate'
 gem 'rails-i18n'
+gem 'devise'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

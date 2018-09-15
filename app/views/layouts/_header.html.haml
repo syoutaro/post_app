@@ -1,0 +1,15 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    = link_to ApplicationHelper::APP_NAME, root_path, id: "logo"
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to "プロフィール編集", edit_user_registration_path
+          %li
+            = link_to "ログアウト", destroy_user_session_path, metnod: :delete
+        - else
+          %li
+            = link_to 'サインアップ', new_user_registration_path
+          %li
+            = link_to 'ログイン', new_user_session_path
