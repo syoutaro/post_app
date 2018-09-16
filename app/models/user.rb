@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validates :name,
           presence: :true,
           uniqueness: { case_sensitive: false }
+  
+  mount_uploader :avatar, AvatarUploader
 
   validates_format_of :name, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
@@ -53,4 +55,6 @@ class User < ApplicationRecord
             errors.add(:name, :invalid)
           end
         end
+
+
 end
