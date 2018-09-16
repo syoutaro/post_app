@@ -11,6 +11,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  avatar                 :string
 #
 
 require 'test_helper'

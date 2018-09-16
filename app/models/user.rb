@@ -11,10 +11,11 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  avatar                 :string
 #
 
 class User < ApplicationRecord
-
+  has_many :posts, inverse_of: :user
   validates :name,
           presence: :true,
           uniqueness: { case_sensitive: false }
@@ -32,29 +33,33 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-        def login=(login)
-          @login = login
-        end
+  def login=(login)
+    @login = login
+  end
 
-        def login
-          @login || self.name || self.email
-        end
+  def login
+    @login || self.name || self.email
+  end
+  
+  def created_month
+    created_at.strftime('%Y年%m月')
+  end
 
-        def self.find_for_database_authentication(warden_conditions)
-          conditions = warden_conditions.dup
-          if login = conditions.delete(:login)
-           where(conditions.to_h).where(["lower(name) = :value OR lower(email) = :value",
-            { :value => login.downcase }]).first
-          elsif conditions.has_key?(:name) || conditions.has_key?(:email)
-           where(conditions.to_h).first
-          end
-        end
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_h).where(["lower(name) = :value OR lower(email) = :value",
+      { :value => login.downcase }]).first
+    elsif conditions.has_key?(:name) || conditions.has_key?(:email)
+      where(conditions.to_h).first
+    end
+  end
       
-        def validate_username
-          if User.where(email: name).exists?
-            errors.add(:name, :invalid)
-          end
-        end
+  def validate_username
+    if User.where(email: name).exists?
+      errors.add(:name, :invalid)
+    end
+  end
 
 
 end

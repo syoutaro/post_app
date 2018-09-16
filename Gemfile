@@ -18,6 +18,8 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'carrierwave'
+gem 'kaminari'
+gem 'counter_culture'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
