@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: admin_users
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -10,15 +10,11 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
-#  avatar                 :string
-#  posts_count            :integer          default(0), not null
-#  role                   :integer          default(0), not null
 #
 
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class AdminUserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

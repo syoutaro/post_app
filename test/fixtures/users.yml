@@ -12,6 +12,8 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  avatar                 :string
+#  posts_count            :integer          default(0), not null
+#  role                   :integer          default(0), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

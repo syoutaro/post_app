@@ -12,6 +12,8 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  avatar                 :string
+#  posts_count            :integer          default(0), not null
+#  role                   :integer          default(0), not null
 #
 
 class User < ApplicationRecord
@@ -26,6 +28,8 @@ class User < ApplicationRecord
   validate :validate_username
 
   attr_accessor :login
+
+  enum role: { user: 0, admin: 1 }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -20,6 +20,7 @@ gem 'devise-bootstrap-views'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'counter_culture'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
