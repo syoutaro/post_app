@@ -1,3 +1,6 @@
+ruby '2.5.1'
+source 'https://rubygems.org'
+
 gem 'rails',        '5.1.6'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -40,6 +43,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
