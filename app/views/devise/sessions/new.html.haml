@@ -1,7 +1,7 @@
 %h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-group
-    = f.label "email or username"
+    = f.label "ユーザーネームまたはメールアドレス"
     %br/
     = f.text_field :login, autofocus: true, class: "form-control col-md-5 col-sm", placeholder: "Enter email or username"
   .form-group

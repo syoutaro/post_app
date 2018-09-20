@@ -13,7 +13,7 @@
 #  name                   :string
 #  avatar                 :string
 #  posts_count            :integer          default(0), not null
-#  role                   :integer          default(0), not null
+#  role                   :integer          default("user"), not null
 #
 
 require 'test_helper'

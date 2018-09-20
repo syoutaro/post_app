@@ -1,5 +1,5 @@
 module ApplicationHelper
-  APP_NAME = "RailsSample".freeze
+  APP_NAME = "PostApp".freeze
 
   def page_title
     base_title = APP_NAME

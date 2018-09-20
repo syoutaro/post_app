@@ -5,7 +5,6 @@
 
   .py-3
     = image_tag current_user.avatar, class: "border rounded w-25"
-
   .form-group
     = f.label :avatar
     %br/
@@ -26,7 +25,7 @@
 
   .form-group
     = f.label :password
-    %i (leave blank if you don't want to change it)
+    %i (パスワードを変更したくない場合は空欄にしてください)
     %br/
     = f.password_field :password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Password"
     - if @minimum_password_length
@@ -37,18 +36,17 @@
 
   .form-group
     = f.label :password_confirmation
+    %i (パスワードを変更したくない場合は空欄にしてください)
     %br/
     = f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Password confirmation"
 
   .form-group
     = f.label :current_password
-    %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Current password"
   .actions
-    = f.submit "Update"
+    = f.submit "変更"
 
 %h3
-  Cancel my account
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5"}
-= link_to "Back", :back
+  このアカウントを削除しますか? #{button_to "削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5"}
+

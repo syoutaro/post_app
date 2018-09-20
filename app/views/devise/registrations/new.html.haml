@@ -1,6 +1,12 @@
 %h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
+
+  .form-group
+    = f.label :avatar
+    %br/
+    = f.file_field :avatar
+
   .form-group
     = f.label :email
     %br/
@@ -13,7 +19,7 @@
     = f.label :password
     - if @minimum_password_length
       %em
-        (#{@minimum_password_length} characters minimum)
+        (#{@minimum_password_length}文字以上入力してください)
     %br/
     = f.password_field :password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Password"
   .form-group

@@ -13,11 +13,11 @@
 #  name                   :string
 #  avatar                 :string
 #  posts_count            :integer          default(0), not null
-#  role                   :integer          default(0), not null
+#  role                   :integer          default("user"), not null
 #
 
 class User < ApplicationRecord
-  has_many :posts, inverse_of: :user
+  has_many :posts, inverse_of: :user, dependent: :destroy
   validates :name,
           presence: :true,
           uniqueness: { case_sensitive: false }
