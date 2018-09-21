@@ -2,16 +2,17 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title PostApp
+    %title 
+      = page_title
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
     .container.py-4.px-0
-      = flash_message(flash[:success], :success) if flash[:success]
-      = flash_message(flash[:error], :danger) if flash[:error]
-      = flash_message(flash[:alert], :warning) if flash[:alert]
-      = flash_message(flash[:notice], :info) if flash[:notice]
+      - flash.each do |key, value|
+        - key = "info" if key == "notice"
+        - key = "danger"  if key == "alert"
+        = content_tag :div, value, class: "alert alert-#{key}"
       = yield
     = render 'layouts/footer'

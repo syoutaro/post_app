@@ -19,7 +19,7 @@
 class User < ApplicationRecord
   has_many :posts, inverse_of: :user, dependent: :destroy
   validates :name,
-          presence: :true,
+          presence: true,
           uniqueness: { case_sensitive: false }
   
   mount_uploader :avatar, AvatarUploader
