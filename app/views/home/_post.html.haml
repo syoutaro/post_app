@@ -1,8 +1,8 @@
-.border.border-left-0.border-right-0.border-bottom-0.py-3.row
-  .col-2.px-2
+.row.post
+  .col-2
     = image_tag post.user.avatar, class: "border.rounded-circle.w-100"
-  .col-10.px-3
-    %p.my-1
+  .col-10
+    %p
       %span.text-secondary
         %strong= "@#{post.user.name}"
         = "#{time_ago_in_words(post.created_at)}前"

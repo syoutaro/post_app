@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from SecurityError do |_exception|
-    redirect_to root_url, notice: 'アドミン画面へのアクセス権限がありません。'
+    redirect_to root_url, alert: 'アドミン画面へのアクセス権限がありません。'
   end
 
   protected

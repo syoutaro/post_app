@@ -1,5 +1,5 @@
 .row
-  .col-md-3.col-12.d-none.d-md-block
+  .col-md-3.col-12
     .card.p-2
       = image_tag current_user.avatar, class: "card-img-top rounded-circle"
       .card-body
@@ -13,7 +13,7 @@
 
   .col-md-9.col-12
     = form_with model: Post.new do |f|
-      .input-group.pb-4.pb-sm-4
+      .input-group
         = f.text_field :body, class: "form-control", placeholder: "投稿する"
         %span.input-group-btn
           = f.submit "投稿", class: "btn btn-primary"

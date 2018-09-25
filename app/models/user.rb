@@ -44,7 +44,7 @@ class User < ApplicationRecord
   def login
     @login || self.name || self.email
   end
-  
+
   def created_month
     created_at.strftime('%Y年%m月')
   end
@@ -58,7 +58,7 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
-      
+
   def validate_username
     if User.where(email: name).exists?
       errors.add(:name, :invalid)
